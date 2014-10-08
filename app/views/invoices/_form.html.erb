@@ -1,0 +1,70 @@
+<%= form_for(@invoice) do |f| %>
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+      <% @invoice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :tax %><br>
+    <%= f.text_field :tax %>
+  </div>
+  <div class="field">
+    <%= f.label 'Employees' %><br>
+    <%= collection_select(:invoice , :employee_id, Employee.all, :id,:name, {include_blank: true}, {:multiple => false}  ) %>
+  </div>
+  <div class="field">
+    <%= f.label 'Status' %><br>
+    <%= f.select(:status_type, options_for_select([['Paid', 'Paid'],
+                                                   ['Pending','Pending']
+                                                  ]),{ include_blank: true }) %>
+  </div>
+    <div class="field">
+  <%= f.label "Good?" %>
+  <%= f.select(:good_type, options_for_select([['Good','Good'],
+                                                ['Bad', 'Bad']
+                                             ]),{ include_blank: true }) %>
+
+  </div>
+
+
+  <div>RelationsShip with Customer's</div>
+ <div class="field">
+<%= f.label 'Satisfeito' %>
+<%= f.select(:satisfation, options_for_select([['Bom','Bom'],['Ruim','Ruim']
+                          ]), { include_blank: true} ) %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="actions">
+    <%= f.submit nil, class: "button radius success" %>
+  </div>
+<% end %>
+</div>

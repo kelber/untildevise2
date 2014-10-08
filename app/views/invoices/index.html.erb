@@ -1,0 +1,46 @@
+<div class="row">
+<h2>Listing invoices</h2>
+<hr>
+<%= link_to 'New Invoice', new_invoice_path ,class:"button radius" %>
+
+
+
+
+<div class="columns largue-12">
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Company</th>
+      <th>Tax</th>
+      <th>Employee</th>
+      <th>Status</th>
+      <th>Good</th>
+      <th>Satisfation</th>
+    
+      <th colspan="4">Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+
+      <tr>
+        <td><%= invoice.date.strftime("%d/%m/%Y") %></td>
+        <td><%= invoice.company %></td>
+        <td><%= invoice.tax %></td>
+        <td><%= invoice.employee.name %></td> 
+        <td><%= invoice.status_type %></td>
+        <td><%= invoice.good_type %></td>
+        <td><%= invoice.satisfation %></td>
+        <td class="command"><%= link_to 'Show', invoice %></td>
+        <td class="command"><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+        <td class="command"><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<br>

@@ -1,0 +1,39 @@
+
+<div class="columns large-6">
+<div class="panel">
+<p>
+  <strong>Date:</strong>
+  <%= @invoice.date.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @invoice.company %>
+</p>
+
+<p>
+  <strong>Tax:</strong>
+  <%= @invoice.tax %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @invoice.employee.name %>
+</p>
+<p>
+  <strong>Status Payment:</strong>
+  <%= @invoice.status_type %>
+</p>
+<p>
+  <strong>Good Status:</strong>
+  <%= @invoice.good_type %>
+</p>
+<p>
+  <strong>Satisfation.... turuRUU:</strong>
+  <%= @invoice.satisfation %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>
+</div>
+</div>

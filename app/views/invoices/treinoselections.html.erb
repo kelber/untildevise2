@@ -1,0 +1,14 @@
+<div class="field">
+<%= f.label 'Satisfeito' %>
+<%= f.select(:satisfation, options_for_select([
+												['Bom','Bom'],['Ruim','Ruim']
+											 ]), { include_blank: true} ) %>
+</div>
+
+
+<div class="field">
+<%= f.label 'Melhor Vendedor Opiniao' %>
+<%= collection_select(:invoice, :employee_id, Employee.all, :id,:name, 
+{ include_blank: true}, { :multiple => false} ) %>
+</div>
+
